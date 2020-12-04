@@ -1,4 +1,4 @@
-name: 'test'
+name: 'Test'
 on: # rebuild any PRs and main branch changes
   pull_request:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-lates, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest]
     steps:
       - name: Get the sources      
         uses: actions/checkout@v2
