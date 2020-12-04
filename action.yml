@@ -8,7 +8,7 @@ author: 'Muhammad Usman'
  #   default: 'default value if applicable'
 outputs:
   release-url:
-    descrption: 'The URL of the GitHub Release that was drafted'
+    description: 'The URL of the GitHub Release that was drafted'
 runs:
   using: 'node12'
   main: 'dist/index.js'
