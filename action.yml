@@ -17,4 +17,4 @@ outputs:
     description: 'The URL of the GitHub Release that was drafted'    
 runs:
   using: 'node12'
-  main: 'dist/lib/main.js'
+  main: 'dist/index.js'
