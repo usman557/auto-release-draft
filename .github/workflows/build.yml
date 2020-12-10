@@ -1,7 +1,6 @@
 name: 'Build'
 on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
+  pull_request: 
     branches:
       - main
       - 'releases/*'

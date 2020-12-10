@@ -22,7 +22,7 @@ export async function run(): Promise<void> {
       core.debug(`The Release URL Created  is \n ${releaseUrl}`)
     } 
 
-    core.setOutput('release-url', 'test url')
+    core.setOutput('release-url', releaseUrl)
 
   } catch (error) {
     core.debug(`The exception in procress  is \n ${error}`)
@@ -30,4 +30,4 @@ export async function run(): Promise<void> {
   }
 }
 
-run()
+//run()
