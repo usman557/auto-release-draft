@@ -20,7 +20,7 @@ export async function run(): Promise<void> {
 
     if(tag && version.isSemVer(tag)){
       
-      const changeLog= await git.getChangesFromTag(tag)
+      const changeLog= 'Command Arguments = [ log = Get the commit messages, --format=%s, only print the first line of the message, range of tag'  //await git.getChangesFromTag(tag)
       core.debug(`Detected the changelos:\n ${changeLog}`)
       releaseUrl = await gitHubRelease.createReleaseDraft(tag, token, changeLog)
     }
