@@ -9,7 +9,7 @@ export async function run(): Promise<void> {
 
     const token= core.getInput('repo-token')
     const tag  = event.getCreatedTag()    
-    var releaseUrl= '';
+    let releaseUrl= '';
 
     if(tag && version.isSemVer(tag)){
       
@@ -18,9 +18,14 @@ export async function run(): Promise<void> {
       releaseUrl = await gitHubRelease.createReleaseDraft(tag, token, changeLog)
     }
 
+    if(releaseUrl){
+      core.debug(`The Release URL Created  is \n ${releaseUrl}`)
+    } 
+
     core.setOutput('release-url', 'test url')
-    
+
   } catch (error) {
+    core.debug(`The exception in procress  is \n ${error}`)
     core.setFailed(error.message)
   }
 }
