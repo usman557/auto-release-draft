@@ -2,53 +2,6 @@ require('./sourcemap-register.js');module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 4979:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getCreatedTag = void 0;
-const core = __importStar(__webpack_require__(2186));
-const github = __importStar(__webpack_require__(5438));
-function getCreatedTag() {
-    if (github.context.eventName !== 'create') {
-        // emit the info for the build log
-        core.info(`The event name was ${github.context.eventName}`);
-        core.info(`VALUE OF REF IS ${github.context.payload.ref}`);
-        return '1.0.0';
-    }
-    if (github.context.payload.ref_type !== 'tag') {
-        // emit the info for the build log
-        core.info('The created reference was a branch instead of a tag');
-        return null;
-    }
-    return github.context.payload.ref;
-}
-exports.getCreatedTag = getCreatedTag;
-
-
-/***/ }),
-
 /***/ 3374:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -267,7 +220,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const core = __importStar(__webpack_require__(2186));
-const event = __importStar(__webpack_require__(4979));
 const version = __importStar(__webpack_require__(8217));
 const git = __importStar(__webpack_require__(3374));
 const gitHubRelease = __importStar(__webpack_require__(4726));
@@ -277,7 +229,7 @@ function run() {
             core.debug('EXECUTION OF MAIN.TS STARTED');
             const token = core.getInput('repo-token');
             core.debug(`TOKEN VALUE IS ${token}`);
-            const tag = event.getCreatedTag();
+            const tag = 'v0.0.6'; // event.getCreatedTag()    
             core.debug(`TAG VALUE IS ${tag}`);
             let releaseUrl = '';
             if (tag && version.isSemVer(tag)) {
@@ -8612,7 +8564,7 @@ module.exports = patch
 
 /***/ }),
 
-/***/ 6014:
+/***/ 4016:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 const parse = __webpack_require__(5925)
@@ -8706,7 +8658,7 @@ module.exports = {
   major: __webpack_require__(6688),
   minor: __webpack_require__(8447),
   patch: __webpack_require__(2866),
-  prerelease: __webpack_require__(6014),
+  prerelease: __webpack_require__(4016),
   compare: __webpack_require__(4309),
   rcompare: __webpack_require__(6417),
   compareLoose: __webpack_require__(2804),
@@ -9538,7 +9490,7 @@ module.exports = __webpack_require__(4219);
 
 
 var net = __webpack_require__(1631);
-var tls = __webpack_require__(4016);
+var tls = __webpack_require__(8818);
 var http = __webpack_require__(8605);
 var https = __webpack_require__(7211);
 var events = __webpack_require__(8614);
@@ -10407,7 +10359,7 @@ module.exports = require("stream");;
 
 /***/ }),
 
-/***/ 4016:
+/***/ 8818:
 /***/ ((module) => {
 
 "use strict";

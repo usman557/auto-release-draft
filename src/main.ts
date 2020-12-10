@@ -13,7 +13,7 @@ export async function run(): Promise<void> {
 
     core.debug(`TOKEN VALUE IS ${token}`);
 
-    const tag  = event.getCreatedTag()    
+    const tag  ='v0.0.6'; // event.getCreatedTag()    
     core.debug(`TAG VALUE IS ${tag}`);
 
     let releaseUrl= '';
