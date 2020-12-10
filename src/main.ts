@@ -7,8 +7,15 @@ import * as gitHubRelease from './githubRelease'
 export async function run(): Promise<void> {
   try {    
 
+    core.debug('EXECUTION OF MAIN.TS STARTED');
+
     const token= core.getInput('repo-token')
+
+    core.debug(`TOKEN VALUE IS ${token}`);
+
     const tag  = event.getCreatedTag()    
+    core.debug(`TAG VALUE IS ${tag}`);
+
     let releaseUrl= '';
 
     if(tag && version.isSemVer(tag)){
@@ -16,6 +23,9 @@ export async function run(): Promise<void> {
       const changeLog= await git.getChangesFromTag(tag)
       core.debug(`Detected the changelos:\n ${changeLog}`)
       releaseUrl = await gitHubRelease.createReleaseDraft(tag, token, changeLog)
+    }
+    else{
+      core.debug('CREATE RELASE METHOD NEVER CALLED');
     }
 
     if(releaseUrl){

@@ -273,13 +273,19 @@ const gitHubRelease = __importStar(__webpack_require__(4726));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            core.debug('EXECUTION OF MAIN.TS STARTED');
             const token = core.getInput('repo-token');
+            core.debug(`TOKEN VALUE IS ${token}`);
             const tag = event.getCreatedTag();
+            core.debug(`TAG VALUE IS ${tag}`);
             let releaseUrl = '';
             if (tag && version.isSemVer(tag)) {
                 const changeLog = yield git.getChangesFromTag(tag);
                 core.debug(`Detected the changelos:\n ${changeLog}`);
                 releaseUrl = yield gitHubRelease.createReleaseDraft(tag, token, changeLog);
+            }
+            else {
+                core.debug('CREATE RELASE METHOD NEVER CALLED');
             }
             if (releaseUrl) {
                 core.debug(`The Release URL Created  is \n ${releaseUrl}`);
