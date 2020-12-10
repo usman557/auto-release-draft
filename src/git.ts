@@ -57,7 +57,7 @@ export async function getCommitMessagesBetween(firstTag: string, secondTag: stri
     // Now use exec to execute the GIT commands from CLI
     // Command Name = git,
     // Command Arguments = [ log = Get the commit messages, --format=%s, only print the first line of the message, range of tags]     
-    const exitCode = await ex.exec(
+   await ex.exec(
         'git',
         [ 'log', '--format=%s', `${firstTag}..${secondTag}`],
         options
@@ -85,7 +85,7 @@ export async function getCommitMessageFrom(tag: string): Promise <string | null>
     // Now use exec to execute the GIT commands from CLI
     // Command Name = git,
     // Command Arguments = [ log = Get the commit messages, --format=%s, only print the first line of the message]     
-    const exitCode = await ex.exec(
+     await ex.exec(
         'git',
         [ 'log', '--format=%s', `${tag}`],
         options
