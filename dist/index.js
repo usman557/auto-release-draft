@@ -34,7 +34,8 @@ function getCreatedTag() {
     if (github.context.eventName !== 'create') {
         // emit the info for the build log
         core.info(`The event name was ${github.context.eventName}`);
-        return null;
+        core.info(`VALUE OF REF IS ${github.context.payload.ref}`);
+        return '1.0.0.0';
     }
     if (github.context.payload.ref_type !== 'tag') {
         // emit the info for the build log
