@@ -18,7 +18,8 @@ export async function run(): Promise<void> {
       releaseUrl = await gitHubRelease.createReleaseDraft(tag, token, changeLog)
     }
 
-    core.setOutput('release-url', releaseUrl)
+    core.setOutput('release-url', 'test url')
+    
   } catch (error) {
     core.setFailed(error.message)
   }
