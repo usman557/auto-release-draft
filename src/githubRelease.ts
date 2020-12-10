@@ -10,7 +10,7 @@ export async function createReleaseDraft(
     const octokit= github.getOctokit(repoToken)
 
     if(changeLog){
-
+        core.debug(`the changelosg is \n ${changeLog}`)
     }
 
     const response= await octokit.repos.createRelease({
@@ -23,13 +23,13 @@ export async function createReleaseDraft(
         draft: true
     })
 
-    if(response.status != 201){
+    if(response.status !== 201){
         core.debug('RELEASE CREATION IS FAILED');
         core.info('RELEASE CREATION IS FAILED');
         throw new Error(`Failed to create the release: ${response.status}`)
     }    
 
-    core.info(`Created the release draft ${response.data.name}`)
+    core.debug(`Created the release draft ${response.data.name}`)
 
     return response.data.html_url
 }
