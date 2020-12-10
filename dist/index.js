@@ -284,7 +284,7 @@ function run() {
             if (releaseUrl) {
                 core.debug(`The Release URL Created  is \n ${releaseUrl}`);
             }
-            core.setOutput('release-url', 'test url');
+            core.setOutput('release-url', releaseUrl);
         }
         catch (error) {
             core.debug(`The exception in procress  is \n ${error}`);
@@ -293,7 +293,7 @@ function run() {
     });
 }
 exports.run = run;
-run();
+//run()
 
 
 /***/ }),
