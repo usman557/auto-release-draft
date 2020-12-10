@@ -31,7 +31,7 @@ export async function getPreviousVersionTag(tag: string): Promise <string | null
     // --abbrev = Get the tagName, --first-parent = only look for current branch ,   ]
     const exitCode = await ex.exec(
         'git',
-        [ 'describe', '--match', 'v[0-9]*', '--abbrev=0', '--first-parent' ],
+        [ 'describe', '--match', 'v[0-9]*', '--abbrev=0', '--first-parent', `${tag}^` ],
         options
      )
 

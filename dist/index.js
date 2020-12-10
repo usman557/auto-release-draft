@@ -112,7 +112,7 @@ function getPreviousVersionTag(tag) {
         // Command Name = git,
         // Command Arguments = [ describe = Get the Tag Names, --match = Regular Expression to get the version tags only, 
         // --abbrev = Get the tagName, --first-parent = only look for current branch ,   ]
-        const exitCode = yield ex.exec('git', ['describe', '--match', 'v[0-9]*', '--abbrev=0', '--first-parent'], options);
+        const exitCode = yield ex.exec('git', ['describe', '--match', 'v[0-9]*', '--abbrev=0', '--first-parent', `${tag}^`], options);
         core.debug(`The previouse version tag is ${pTag}`);
         return exitCode === 0 ? pTag.trim() : null;
     });
