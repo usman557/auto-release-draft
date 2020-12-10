@@ -9,6 +9,10 @@ export async function createReleaseDraft(
     
     const octokit= github.getOctokit(repoToken)
 
+    if(changeLog){
+
+    }
+
     const response= await octokit.repos.createRelease({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
@@ -20,6 +24,8 @@ export async function createReleaseDraft(
     })
 
     if(response.status != 201){
+        core.debug('RELEASE CREATION IS FAILED');
+        core.info('RELEASE CREATION IS FAILED');
         throw new Error(`Failed to create the release: ${response.status}`)
     }    
 
