@@ -1,6 +1,10 @@
 name: 'Auto Release Draft'
 description: 'Auto Release Draft'
 author: 'Muhammad Usman'
+inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN used to authenticate to the current repo'
+    required: true
 #inputs:
 #  milliseconds: # change this
  #   required: true
