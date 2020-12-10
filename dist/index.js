@@ -467,7 +467,7 @@ function wait(milliseconds) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise(resolve => {
             if (isNaN(milliseconds)) {
-                console.log('milliseconds not a number');
+                throw new Error('THIS IS CAUSING THE ISSUE => milliseconds not a number');
             }
             setTimeout(() => resolve('done!'), milliseconds);
         });
