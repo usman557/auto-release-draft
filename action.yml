@@ -1,17 +1,10 @@
 name: 'Auto Release Draft'
 description: 'Auto Release Draft'
 author: 'Muhammad Usman'
-inputs:
-  milliseconds:
-    default: 2
+inputs:    
   repo-token:
     description: 'The GITHUB_TOKEN used to authenticate to the current repo'
     required: true
-#inputs:
-#  milliseconds: # change this
- #   required: true
-   # description: 'input description here'
- #   default: 'default value if applicable'
 outputs:
   release-url:
     description: 'The URL of the GitHub Release that was drafted'    
